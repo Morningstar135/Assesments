@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 const ApiIntegretion = () => {
@@ -10,22 +9,21 @@ const ApiIntegretion = () => {
             setData(response.data)
             console.log(response.data)
         })
-    })
+    },[])
   return (
-    <div className='container'>
-        <div className='row'>
+    <div className='container-fluid'>
+      <h2 className='text-center mt-5'>Users List</h2>
+        <div className='row mx-auto'>
         {
             data.map((user)=>{
                 return(
                     
-            <div className='col-4 mt-5 ms-3'> <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
+            <div className='col-5 me-5 mt-5'> <Card style={{ width: '18rem' }}>
       <Card.Body>
-        <Card.Title>{user.userName}</Card.Title>
-        <Card.Text>
-        <h2>{user.name}</h2>
-        <p>Email:{user.email}</p><br></br>
-        <p>Phone:{user.phone}</p>
+        <Card.Text className='text-center'>
+       {user.name}        <br></br>
+        Email:{user.email}<br></br>
+        Phone:{user.phone}<br></br>
         </Card.Text>
         
       </Card.Body>
